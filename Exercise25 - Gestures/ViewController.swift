@@ -34,11 +34,14 @@ class ViewController: UIViewController {
     }
     
     @objc func handleTap(_ sender: UITapGestureRecognizer) {
-        UIView.animate(withDuration: 1.0, animations: {
+        print(monkeyView.frame)
+        print(bananaView.frame)
+        UIView.animate(withDuration: 1.5, animations: {
             self.bananaView.center.y = self.view.bounds.height
         }) { (finished) in
             if self.monkeyView.frame.intersects(self.bananaView.frame) {
                 self.showGameOverAlert()
+                self.resetGame()
             } else {
                 self.resetGame()
             }
